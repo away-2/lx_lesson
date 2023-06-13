@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            width: 3000px;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box')
+        window.onscroll = function () {
+            console.log(checkInView(box))
+        }
+        function checkInView(dom) {
+            // console.log(dom.getBoundingClientRect());
+            const { top, left, right, bottom } = dom.getBoundingClientRect()
+            return top > 0 
+            && left > 0 
+            && bottom <= (window.innerHeight || document.documentElement.clientHeight) 
+            && right <= (window.innerWidth || document.documentElement.clientWidth)
+        }
+
+    </script>
+</body>
+
+</html>
