@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul id="ul"></ul>
+    </div>
+    <script>
+        // let app = document.getElementById('app')
+        // let ul = document.getElementById('ul')
+        // ul.style.display = 'none'
+        // for(let i = 0;i < 5;i++){
+        //     let li = document.createElement('li')
+        //     li.innerText = i
+        //     ul.appendChild(li) 
+        
+        // }
+        // ul.style.display = 'block'
+
+        // let ul = document.getElementById('ul')
+        // let frg = document.createDocumentFragment()   //虚拟文档片段
+        // for(let i = 0;i < 5;i++){ 
+        //     let li = document.createElement('li')
+        //     li.innerText = i
+        //     // ul.appendChild(li) 
+        //     frg.appendChild(li)
+        
+        // }
+        // ul.appendChild(frg)
+
+
+        let ul = document.getElementById('ul')
+        let clone = ul.cloneNode(true)
+
+        for(let i = 0;i < 5;i++){
+            let li = document.createElement('li')
+            li.innerText = i
+            clone.appendChild(li) 
+        
+        }
+        ul.parentNode.replaceChild(clone,ul)
+
+    </script>
+</body>
+</html>
