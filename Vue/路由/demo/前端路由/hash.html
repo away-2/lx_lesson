@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- <ul>
+    <li><a href="#/home">首页</a></li>
+    <li><a href="#/about">关于</a></li>
+  </ul> -->
+
+  <!-- 渲染对应的代码块 -->
+  <div id="view"></div>
+
+  <script>
+    let view = $('#view')
+
+    let dom = `<div class="home">
+                <a href="#/about">go about</a>
+                <p>这是首页</p>
+              </div>`
+    let dom2 = `<div class="about">
+                  <a href="#/detail">go detail</a>
+                  <p>这是about page</p>
+                </div>`
+    let dom3 = `<h1>详情页</h1>`           
+
+    let routes = [
+      {
+        path: '#/home',
+        component: dom
+      },
+      {
+        path: '#/about',
+        component: dom2
+      },
+      {
+        path: '#/detail',
+        component: dom3
+      }
+    ]
+
+
+    window.addEventListener('hashchange', () => {
+      // console.log(location.hash); 
+      let hash = location.hash
+      routes.forEach((route) => {
+        if (route.path == hash) {
+          view.html(route.component)
+        }
+      })
+    })
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (!location.hash) {
+        location.hash = '/'
+      } else {
+        let hash = location.hash
+        routes.forEach((route) => {
+          if (route.path == hash) {
+            view.html(route.component)
+          }
+        })
+      }
+    })
+  </script>
+</body>
+</html>
