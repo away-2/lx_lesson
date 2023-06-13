@@ -1,0 +1,16 @@
+{
+  "name": "article-generator",
+  "version": "1.0.0",
+  "description": "1. 创建一个语料库   （fs）\r 2. 随机读取语料库的算法\r 3. 字符串模板的参数替换     (正则)\r 4. 文章内容的拼接\r 5. 输出",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
