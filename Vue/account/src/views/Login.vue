@@ -62,9 +62,14 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from 'vue'
 import Header from '../component/Header.vue'
+import axios from '@/api/axios.js'
+import { showSuccessToast, showFailToast } from 'vant'
+import 'vant/es/toast/style'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const state = reactive({
     username: '',
     password: '',
@@ -73,12 +78,26 @@ const state = reactive({
 
 })
 
-const onSubmit = () => {
+const onSubmit = async() => {
     // console.log(state.username,state.password,state.repassword)
     if (state.isLogin) { // 登录请求
+       const res = await axios.post('/user/login',{
+        username: state.username,
+        password: state.password,
+       })
+
+    //    console.log(res);
+    localStorage.setItem('token', res.data.token);
+    router.push('/page')
 
     } else {  // 注册请求
-
+        const res = await axios.post('/user/register',{
+            username: state.username,
+            password: state.password
+        })
+        showSuccessToast(res.msg)
+        state.isLogin = true
+        
     }
 }
 const changeBtn = () => {
@@ -88,25 +107,21 @@ const changeBtn = () => {
 
 <style lang="less" scoped>
 @import '@/assets/style/custom.less';
-
-.wrap {
-    height: calc(100%-46px);
-    padding: 30px 20px 0 20px;
-    background: @primary-bg;
-
-    .logo {
-        width: 150px;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 30px;
-    }
-
-    .change-btn {
-        text-align: center;
-        margin: 10px 0;
-        color: @link-color;
-        font-size: 14px;
-    }
-
+.wrap{
+  height: calc(100% - 46px);
+  padding: 30px 20px 0 20px;
+  background: @primary-bg;
+  .logo{
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+  .change-btn{
+    text-align: center;
+    margin: 10px 0;
+    color: @link-color;
+    font-size: 14px;
+  }
 }
 </style>
