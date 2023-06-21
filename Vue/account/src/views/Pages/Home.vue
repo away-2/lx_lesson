@@ -1,12 +1,12 @@
 <template>
     <div class="home">
         <div class="header">
-            <div class="type-wrap">
-                <span class="title">全部类型</span>
+            <div class="type-wrap" @click="changeType">
+                <span class="title" >{{state.currentType.name || '全部类型'}}</span>
                 <van-icon name="apps-o" />
             </div>
             <div class="data-wrap">
-                <span class="time">2023-06 <i class="iconfont icon-sort-down"></i></span>
+                <span class="time" @click="monthToggle">{{ state.currentMonth }}<i class="iconfont icon-sort-down"></i></span>
                 <span class="expense">总支出￥ {{ state.totalExpense }}</span>
                 <span class="income">总收入￥ {{ state.totalIncome }}</span>
             </div>
@@ -24,14 +24,21 @@
 
             </van-pull-refresh>
         </div>
+      <PopMonth @select="selectMonth" ref="popMonthRef"/>
+      <PopType @select="selectType" ref="popTypeRef"/>
     </div>
 </template>
 
 <script setup>
-import { onMounted, reactive } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import CartItem from '@/component/CartItem.vue';
 import axios from '@/api/axios';
+import PopMonth from '@/component/PopMonth.vue';
+import PopType from '@/component/PopType.vue';
+import dayjs from 'dayjs';
 
+const popMonthRef = ref(null)
+const popTypeRef = ref(null)
 const state = reactive({
     loading: false,
     refreshing: false,
@@ -39,7 +46,9 @@ const state = reactive({
     totalExpense: 0,
     totalIncome: 0,
     totalPage: 1,
-    list: []
+    list: [],
+    currentMonth: dayjs().format('YYYY-MM'),
+    currentType: {}
 })
 
 onMounted(() =>{
@@ -48,7 +57,7 @@ onMounted(() =>{
 
 //获取账单数据
 const getBillList = async() =>{
-    const {data} = await axios.get(`/bill/list?date=2023-06&type_id=all&page=1&page_size=5`)
+    const {data} = await axios.get(`/bill/list?date=${state.currentMonth}&type_id=${state.currentType.id || 'all'}&page=1&page_size=5`)
     console.log(data);
     state.totalExpense = data.totalExpense;
     state.totalIncome = data.totalIncome;
@@ -56,20 +65,41 @@ const getBillList = async() =>{
 
 }
 
-const onRefresh = () =>{
-    console.log(11111);
+const onRefresh = async() =>{
+    // console.log('下拉刷新');
     state.refreshing = true;
-    setTimeout(() => {
-            state.refreshing = false;
+    await getBillList()
+    state.refreshing = false;
            
-        }, 2000);
 }
 
 // 列表加载更多
 const onLoad = () =>{
-    console.log(55555);
+    // console.log('加载更多');
 }
-</script>
+// 选择年月
+const monthToggle = () =>{
+  // 修改子组件的show
+  popMonthRef.value.show = true
+
+}
+
+const selectMonth = (value) =>{
+  // console.log(value);
+  state.currentMonth = value.join('-')
+  getBillList()
+}
+// 修改选择类型
+const changeType = () =>{
+    popTypeRef.value.show = true
+}
+const selectType = (item) =>{
+  // console.log(item);
+  state.currentType = item;
+  getBillList()
+
+}
+ </script>
 
 <style lang="less" scoped>
 @import url('@/assets/style/custom.less');
