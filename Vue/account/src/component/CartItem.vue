@@ -1,23 +1,44 @@
 <template>
    <van-cell-group class="item">
     <div class="header-date">
-        <div>2023-06-20</div>
+        <div>{{bill.date}}</div>
         <div class="money">
-            <span><b>支</b>1234.00</span>
-            <span><b>收</b>51234.00</span>
+            <span><b>支</b>{{ state.expense }}</span>
+            <span><b>收</b>{{ state.income }}</span>
         </div>
     </div>
     <van-cell 
-        title="餐饮" 
-        value="-12.00"
-        label="12:00 | 备注"
+        v-for="(item,index) in bill.bills"
+        :key ="index"
+        :title="item.type_name"
+        :value="`${item.pay_type === 1 ? '-' : '+'}${item.amount}`"
+        :label="`${$filters.transTime(item.date)}  ${item.remark ? '|' +item.remark : ''}`"
      />
-    
-
    </van-cell-group>
 </template>
 
 <script setup>
+import { reactive } from 'vue';
+
+const props = defineProps({
+  bill: {
+    type: Object,
+    default: () =>{}
+  }
+})
+
+const state = reactive({
+  income: 0,
+  expense: 0
+})
+
+state.expense = props.bill.bills.filter((item) => item.pay_type === 1).reduce((pre,item) =>{
+  return pre + Number(item.amount)
+},0)
+state.income = props.bill.bills.filter((item) => item.pay_type === 2).reduce((pre,item) =>{
+  return pre + Number(item.amount)
+},0)
+
 
 </script>
 

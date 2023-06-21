@@ -7,8 +7,8 @@
             </div>
             <div class="data-wrap">
                 <span class="time">2023-06 <i class="iconfont icon-sort-down"></i></span>
-                <span class="expense">总支出￥ 3123123</span>
-                <span class="income">总收入￥ 93123123</span>
+                <span class="expense">总支出￥ {{ state.totalExpense }}</span>
+                <span class="income">总收入￥ {{ state.totalIncome }}</span>
             </div>
         </div>
         <div class="content-wrap">
@@ -19,7 +19,7 @@
                 finished-text="没有更多了"
                 @load="onLoad"
                 >
-                    <CartItem v-for="item in 10"/>
+                    <CartItem v-for="(item, index) in state.list" :key="index " :bill="item"/>
                 </van-list>
 
             </van-pull-refresh>
@@ -31,10 +31,15 @@
 import { onMounted, reactive } from 'vue';
 import CartItem from '@/component/CartItem.vue';
 import axios from '@/api/axios';
+
 const state = reactive({
     loading: false,
     refreshing: false,
     finished: true,
+    totalExpense: 0,
+    totalIncome: 0,
+    totalPage: 1,
+    list: []
 })
 
 onMounted(() =>{
@@ -43,8 +48,12 @@ onMounted(() =>{
 
 //获取账单数据
 const getBillList = async() =>{
-    const res = await axios.get(`/bill/list?date=2023-06&type_id=all&page=1&page_size=5`)
-    console.log(res);
+    const {data} = await axios.get(`/bill/list?date=2023-06&type_id=all&page=1&page_size=5`)
+    console.log(data);
+    state.totalExpense = data.totalExpense;
+    state.totalIncome = data.totalIncome;
+    state.list = data.list;
+
 }
 
 const onRefresh = () =>{
