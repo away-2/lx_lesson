@@ -23,9 +23,13 @@
                 </van-list>
 
             </van-pull-refresh>
+        </div>  
+        <div class="account" @click="getAccount">
+          <van-icon name="records" size="25"/>
         </div>
       <PopMonth @select="selectMonth" ref="popMonthRef"/>
       <PopType @select="selectType" ref="popTypeRef"/>
+      <Account @select="selectAccount" ref="getAccountRef"/>
     </div>
 </template>
 
@@ -35,6 +39,7 @@ import CartItem from '@/component/CartItem.vue';
 import axios from '@/api/axios';
 import PopMonth from '@/component/PopMonth.vue';
 import PopType from '@/component/PopType.vue';
+import Account from '@/component/Account.vue';
 import dayjs from 'dayjs';
 
 const popMonthRef = ref(null)
@@ -98,6 +103,10 @@ const selectType = (item) =>{
   state.currentType = item;
   getBillList()
 
+}
+// 加入账单
+const getAccount = () => {
+    getAccountRef.value.show = true
 }
  </script>
 
@@ -181,5 +190,22 @@ const selectType = (item) =>{
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     color: @primary;
   }
+  .account{
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    bottom: 100px;
+    right: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    .van-icon{
+      position: absolute;
+      top: 13px;
+      left: 12px;
+      color: @primary; 
+    }
+  }
+
 }
 </style>
