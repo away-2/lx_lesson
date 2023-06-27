@@ -1,7 +1,13 @@
-# Vue 3 + Vite
+# 图元
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# 场景图
+1. 场景是场景图的一部分
 
-## Recommended IDE Setup
+2. Scene 创建的普通场景，普通场景中可以添加一些辅助效果 (雾化)，
+所有场景都可以添加 Object3D、Mesh
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+3. Object3D 创建空白空间，可以添加Mesh
+
+- 一个局部的相对空间，就是一个场景
+- 一个空间又可能是由几个子空间组成的
+- 空间合并 SceneA.add(SceneB)
