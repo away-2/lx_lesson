@@ -6,12 +6,11 @@
       </li>
     </ul>
   </template>
-  
+   
   <script setup>
   import { ref } from 'vue';
   import Child4 from './components/Child4.vue';
   
-  const list = ref(['html'])
   const childRef = ref(null)
 
   </script>

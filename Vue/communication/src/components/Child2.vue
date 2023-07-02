@@ -3,6 +3,7 @@
       <input type="text" v-model="value">
       <button @click="handle">添加</button>
     </div>
+    
   </template>
   
   <script setup>

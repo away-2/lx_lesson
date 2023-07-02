@@ -3,7 +3,7 @@
         <li class="list-item" v-for="(item, index) in upList" :key="index">{{ item }}</li>
     </ul>
 </template>
-
+ 
 <script setup>
 import { inject } from 'vue'
 

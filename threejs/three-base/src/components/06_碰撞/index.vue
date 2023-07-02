@@ -53,6 +53,7 @@ onMounted(() =>{
     })
     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat)
     scene.add(sphereMesh)
+    
     // --------------------------------------------------------------------------------------------------------------------------------
 
     // CANNON 灵魂

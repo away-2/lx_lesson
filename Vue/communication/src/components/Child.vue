@@ -1,6 +1,7 @@
 <template>
+    <!-- Child.vue  -->
     <ul class="list">
-        <li class="list-item" v-for="(item, index) in upList" :key="index">{{ item }}</li>
+        <li class="list-item" v-for="(item, index) in list" :key="index"> {{ item }}</li>
     </ul>
 </template>
 
@@ -14,14 +15,14 @@ const props = defineProps({
     }
 })
 
-const upList = computed(() => {
-    // console.log(111);
-    let res = []
-    props.list.forEach((item, index) => {
-        props.list[index] = item.toUpperCase()
-    })
-    return res
-})
+// const upList = computed(() => {
+//     // console.log(111);
+//     let res = []
+//     props.list.forEach((item, index) => {
+//         props.list[index] = item.toUpperCase()
+//     })
+//     return res
+// })
 
 </script>
 

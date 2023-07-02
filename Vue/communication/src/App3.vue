@@ -6,16 +6,13 @@
       </li>
     </ul>
   </template>
-  
+   
   <script setup>
   import { ref } from 'vue';
   import Child3 from './components/Child3.vue';
   
   const list = ref(['html'])
-  const handleAdd = (val) => {
-    // console.log(val);
-    list.value.push(val)
-  }
+ 
   </script>
   
   <style>

@@ -1,4 +1,5 @@
 <template>
+  <!-- App.vue -->
   <div class="input-group">
     <input type="text" v-model="value">
       <button @click="handle">添加</button>
@@ -7,7 +8,7 @@
 </template>
 
 <script setup>
-// import Child from './components/Child1-1.vue'
+import Child from './components/Child1-1.vue'
 import { ref } from 'vue'
 
 const value =ref('')
