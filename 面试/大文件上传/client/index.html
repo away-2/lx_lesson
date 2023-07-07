@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.6/axios.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="file" @change="getVal">
+    <button @click="handleUpload">上传</button>
+  </div>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          fileObj: {
+            file: null
+          }
+        }
+      },
+      methods: {
+        getVal(e) {
+          console.log(e.target.files[0]);
+          this.fileObj.file = e.target.files[0]
+        },
+        handleUpload() {
+          const fileObj = this.fileObj
+          if (!fileObj.file) return
+          // 切片
+          const chunks = this.createChunk(fileObj.file)
+          // 传输前的数据整理
+          const chunkList = chunks.map(({file}, index) => {
+            return {
+              file,
+              size: file.size,
+              precent: 0,
+              chunkName: `${fileObj.file.name}-${index}`,
+              fileName: fileObj.file.name,
+              index
+            }
+          })
+          // 传输
+          // console.log(chunkList);
+          this.uploadChunks(chunkList)
+        },
+        async uploadChunks(chunkList) {
+          if (!chunkList.length) return 
+          // 一个一个片段去上传
+          const requestList = chunkList.map(({file, fileName, index, chunkName}) => {
+            // Blob转换成进制数
+            const formData = new FormData()
+            formData.append('file', file)
+            formData.append('chunkName', chunkName)
+            formData.append('fileName', fileName)
+            return {formData, index}
+          })
+          // console.log(requestList);
+          // 请求发送
+          const resList = requestList.map(({formData, index}) => 
+            this.axiosRequest({
+              url: 'http://localhost:3000/upload',
+              data: formData,
+              onUploadProgress: this.createProgess(chunkList[index])
+            })
+          )
+          // resList 全部达到后端后
+          await Promise.all(resList) 
+          // 合并请求
+          this.mergeChunk(chunkList)
+
+          // console.log(resList);
+        },
+        async mergeChunk(chunkList, size = 5 * 1024 * 1024) {
+          await this.axiosRequest({
+            url: 'http://localhost:3000/merge',
+            headers: {'Content-Type': 'application/json'},
+            data: JSON.stringify({
+              fileName: chunkList[0].fileName,  // 随便给后端一个标记
+              size: size
+            })
+          })
+        },
+        createProgess(item) {
+          // 维护进度条
+
+        },
+        axiosRequest({
+          url,
+          method = "post",
+          data,
+          onUploadProgress = (e) => e
+        }) {
+          return new Promise((resolve, reject) => {
+            const config = {
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            }
+            axios[method](url, data, config).then(res => {
+              resolve(res)
+            }).catch(err => {
+              reject(err)
+            })
+          })
+
+        },
+        createChunk(file, size = 5 * 1024 * 1024) {
+          const chunks = []
+          let cur = 0
+          while (cur < file.size) {
+            chunks.push({ file: file.slice(cur, cur + size) })
+            cur += size
+          }
+          return chunks
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
