@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['goDetail',['$event']]]]]}}" class="goods" bindtap="__e"><image class="img" src="imgSrc" mode></image><view class="desc">{{''+title+''}}</view></view>
