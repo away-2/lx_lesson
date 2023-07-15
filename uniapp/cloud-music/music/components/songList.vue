@@ -6,7 +6,7 @@
 		</view>
 		<view class="clearfix">
 			<view class="item" v-for="(item, index) in list" :key="index">
-				<image class="img" :src="item.picUrl + $imgSuffix"></image>
+				<image class="img" :src="item.picUrl"></image>
 				<view class="desc">{{item.name}}</view>
 				<view class="count"> {{ item.playCount}}</view>
 			</view>
@@ -90,6 +90,13 @@
 				height: 64rpx;
 				margin-top: 12rpx;
 				line-height: 30rpx;
+				font-size: 24rpx;
+
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
 			}
 
 			.count {

@@ -1,6 +1,7 @@
 <template>
 	<view class="detail">
 		<text>detail</text>
+		<view class="iconfont icon-Profile"></view>
 	</view>
 </template>
 

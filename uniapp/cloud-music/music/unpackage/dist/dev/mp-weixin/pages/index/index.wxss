@@ -27,11 +27,42 @@
 .banner {
   padding-top: 20rpx;
 }
-.swiper {
-  border-radius: 15rpx;
+.banner .swiper {
+  border-radius: 14rpx;
   overflow: hidden;
 }
-.swiper-item image {
+.banner .swiper .swiper-item image {
   width: 100%;
+}
+.main-bar {
+  margin-top: 38rpx;
+}
+.main-bar .img-item {
+  margin: 0 auto;
+  width: 92rpx;
+  height: 92rpx;
+  background-color: #d81e06;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.main-bar .img-item .img {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+}
+.main-bar .img-item .date {
+  position: absolute;
+  color: #fff;
+  font-size: 20rpx;
+  bottom: 26rpx;
+}
+.main-bar .text {
+  text-align: center;
+  color: #666;
+  line-height: 76rpx;
+  font-size: 28rpx;
 }
 

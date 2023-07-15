@@ -4,7 +4,8 @@
     "pages/video/video",
     "pages/mine/mine",
     "pages/cloud/cloud",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/login/login"
   ],
   "subPackages": [],
   "window": {

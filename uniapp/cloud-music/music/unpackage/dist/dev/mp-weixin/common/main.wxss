@@ -31,4 +31,10 @@ view {
 .plr30 {
   padding: 0 30rpx;
 }
+.flex-box {
+  display: flex;
+}
+.flex-box .flex-item {
+  flex: 1;
+}
 

@@ -14,3 +14,15 @@ view {
 		flex: 1;
 	}
 }
+.fr {
+	float: right;
+}
+.fl{
+	float: left;
+}
+.ellipsis{
+	white-space: nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	
+}

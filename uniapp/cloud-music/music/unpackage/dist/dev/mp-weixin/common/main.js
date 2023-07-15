@@ -15,6 +15,7 @@ var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/run
 __webpack_require__(/*! uni-pages */ 26);
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 27));
 var _util = _interopRequireDefault(__webpack_require__(/*! ./common/js/util.js */ 33));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./utils/index.js */ 42));
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 25));
 __webpack_require__(/*! ./uni.promisify.adaptor */ 34);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -22,7 +23,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 // @ts-ignore
 wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 _vue.default.prototype.$pubFuc = _util.default; // this.$pubFuc.xxx
-
+_vue.default.prototype.$websiteUrl = _index.default;
 _vue.default.config.productionTip = false;
 _App.default.mpType = 'app';
 var app = new _vue.default(_objectSpread({}, _App.default));
