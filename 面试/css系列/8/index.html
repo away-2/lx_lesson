@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            background: #eee;
+            /* width: 100vw; */
+            height: 200px;
+            display: flex;
+
+        }
+        .left{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* float: left; */
+            /* position: absolute; */
+        }
+        .center{
+            height: 200px;
+            background-color: aqua;
+            margin-left: 200px;
+            margin-right: 200px;
+            flex: 1;
+        }
+        .right{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* float: right; */
+            /* position: absolute;
+            right: 0;
+            top: 0; */
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">左侧</div>
+        <div class="center">中间</div>
+        <div class="right">右侧</div>
+    </div>
+</body>
+</html>
