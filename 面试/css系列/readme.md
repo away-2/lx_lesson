@@ -184,6 +184,26 @@ box-sizing: border-box;  // 让浏览器以IE盒模型的标准来执行
         4. 尽量减少offsetxxx的使用
         5. display: none;之后使用 display: block;（需要对某个dom结构做较多的修改时）
 
+# 14. 什么是响应式布局？基本原理是什么？
+    - 页面布局根据用户设备环境的变化进行相应的调整
+
+    - 实现方式：
+        1. 媒体查询
+        2. rem + 媒体查询
+        3. rem + flexible
+        4. %
+        5. vw/vh
+
+# 15.如何实现视差滚动？（三只松鼠官网）
+    1. background-attachment: fixed;   // 背景图固定在初始位置上
+    2. perspective  // 让视角变成3D效果，从实现近大远小，离眼睛越近看起来会滚动的越快
+
+# 16. 如果要做优化，css上能做些什么？
+    1. 使用合理的选择器，不要嵌套过深
+    2. 异步加载css
+        js控制
+    3. css压缩
+    4. 不要使用@import() 引入css， 而是用link标签
 
 
 
