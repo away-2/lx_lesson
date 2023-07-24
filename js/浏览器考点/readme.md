@@ -35,7 +35,7 @@
 
 
 # 3. 存储
-cookie              localStorage        sessionStorage          indexDB
+cookie              localStorage        sessionStorage          indexedDB
 后端操作存储          前端操作存储          前端操作存储            前端操作存储
 
 可设置过期时间        一直在除非手动清理     页面关闭自动清理        一直存在除非手动清理               
