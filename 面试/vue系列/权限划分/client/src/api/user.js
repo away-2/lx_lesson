@@ -7,3 +7,7 @@ export const login = (body) => {
 export const home = (body) => {
     return post('/home', body).then(res => res.data)
 }
+
+export const menu = (body) => {
+    return post('/menu', body).then(res => res.data)
+}

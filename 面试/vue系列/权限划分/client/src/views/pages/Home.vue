@@ -1,6 +1,7 @@
 <template>
     <div>
-        home
+         <h1>home</h1>
+         <el-button type="danger" v-noLevel>通过审批</el-button>
     </div>
 </template>
 

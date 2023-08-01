@@ -30,8 +30,8 @@
               class="el-menu-vertical-demo"
               router
             >
-            <div v-for="item in menu" :key="item.index">
-              <el-menu-item :index="item.index" v-if="userLevel >= item.level">
+            <div v-for="item in menuList" :key="item.index">
+              <el-menu-item>
                 <el-icon><setting /></el-icon>
                 <span>{{ item.title }}</span>
               </el-menu-item> 
@@ -47,29 +47,38 @@
   </template>
   
   <script setup>
-const menu = [
-  {
-    index: '/home',
-    title: '首页',
-    icon: 'setting',
-    level: 1
-  },
-  {
-    index: '/class',
-    title: '班级',
-    icon: 'setting',
-    level: 1
-  },
-  {
-    index: '/statis',
-    title: '统计',
-    icon: 'setting',
-    level: 2
-  }
-]
+// const menu = [
+//   {
+//     index: '/home',
+//     title: '首页',
+//     icon: 'setting',
+//     level: 1
+//   },
+//   {
+//     index: '/class',
+//     title: '班级',
+//     icon: 'setting',
+//     level: 1
+//   },
+//   {
+//     index: '/statis',
+//     title: '统计',
+//     icon: 'setting',
+//     level: 2
+//   }
+// ]
 
-const userLevel = window.localStorage.getItem('level')
-console.log(userLevel);
+// const userLevel = window.localStorage.getItem('level')
+// console.log(userLevel);
+  import { menu } from '../api/user.js'
+  import { ref } from 'vue'
+
+  const menuList = ref([])
+
+  menu().then(res => {
+    console.log(res,'////////');
+    menuList.value = res.data
+  })
   </script>
   
   <style lang="css" scoped>

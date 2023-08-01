@@ -1,9 +1,11 @@
 const router = require('koa-router')();
 const jwt = require('../utils/jwt');
 
+let level = 0
+
 router.post('/login', (ctx) => {
     let user = ctx.request.body
-    let level = 0
+
     if (user.username === 'admin') {
       level = 3
     } else if (user.username === 'shu') {
@@ -31,5 +33,35 @@ router.post('/home', jwt.verify('1'), (ctx) => {
         code: 0,
         data: 'this is home data'
     }
+})
+
+// 获取菜单
+router.post('/menu',jwt.verify(true), (ctx) => {
+  const menu = [
+    {
+      index: '/home',
+      title: '首页',
+      icon: 'setting',
+      level: 1
+    },
+    {
+      index: '/class',
+      title: '班级',
+      icon: 'setting',
+      level: 1
+    },
+    {
+      index: '/statis',
+      title: '统计',
+      icon: 'setting',
+      level: 2
+    }
+  ]
+  let showMenu = menu.filter(item => item.level <= level)
+
+  ctx.body = {
+    code: 0,
+    data: showMenu
+  }
 })
 module.exports = router;
