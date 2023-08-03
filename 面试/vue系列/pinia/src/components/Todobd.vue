@@ -1,16 +1,18 @@
 <template>
     <div>
-        <ul>
-            <li v-for="item in store.state.todos">{{ item }}</li>
-        </ul>
+      <ul>
+        <li v-for="item in store.state.todos">{{item}}</li>
+      </ul>
     </div>
-</template>
+  </template>
   
-<script setup>
-import { useStore } from '../store/myVuex.js'
-
-const store = useStore()
-// console.log(store.state.todos);
-</script>
+  <script setup>
+  import { useStore } from '../store/myVuex.js'
   
-<style lang="css" scoped></style>
+  const store = useStore() // inject('store')
+  console.log(store.state);
+  </script>
+  
+  <style lang="css" scoped>
+  
+  </style>

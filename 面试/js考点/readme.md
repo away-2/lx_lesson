@@ -1,3 +1,40 @@
+# 1. js数组的常用方法有哪些？
+
+    - 增删改: push(), pop(), unshift(), shift(), splice(i, num, 'xx'), concat()
+    - 遍历: forEach, reduce, filter, every, some, map
+    - 排序: sort, reverse
+    - 查找: indexOf(), lastIndexOf(), includes(), find, findIndex,
+
+# 2. js字符串的常用法有哪些？
+
+    - 增：concat()
+    - 删：slice(), substr(i, len), substring(i, j)
+    - 改：toUpperCase(), toLowerCase(), trimStart(), trimEnd(), repeat(2)
+    - 查：indexOf(), includes(), startsWith(), charAt(i)
+    - 转换：split()
+    - 匹配：replace(), match(正则), search(正则)
+
+# 3. 谈谈js中的类型转化机制
+
+    - 概述： 基本类型：string number boolean undefined null symbol bigInt 引用类型：object
+
+    - 显示转换：人为的转换
+
+    - 隐式转换：
+
+    原始类型 =》 原始类型
+    引用类型 =》 原始类型
+    四则运算： + - * / % == !=
+
+    条件语句： if while > <
+
+    ToPrimitive(obj) 执行过程
+
+    判断obj是否为原始值，是则返回
+    调用valueOf(obj), 能转成原始值则返回
+    调用toString(obj),能转成原始值则返回
+    报错
+
 # 4. == VS === ?
     == 只判断值是否相等，会发生隐式类型转换
     === 不发生隐式类型转换，判断值相等

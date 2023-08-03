@@ -1,21 +1,22 @@
 <template>
     <div>
-        <input type="text" v-model="content">
-        <button @click="add">添加</button>
+      <input type="text" v-model="content">
+      <button @click="add">添加</button>
     </div>
-</template>
+  </template>
   
-<script setup>
-import { ref } from 'vue'
-import { useStore } from '../store/myVuex.js'
-
-const store = useStore()
-const content = ref('')
-
-const add = () => {
-    // console.log(store);
+  <script setup>
+  import { ref } from 'vue'
+  import { useStore } from '../store/myVuex.js'
+  
+  const content = ref('')
+  
+  const store = useStore()
+  const add = () => {
     store.commit('add', content.value)
-}
-</script>
+  }
+  </script>
   
-<style lang="css" scoped></style>
+  <style lang="css" scoped>
+  
+  </style>

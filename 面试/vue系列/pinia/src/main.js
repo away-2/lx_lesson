@@ -1,9 +1,5 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import store from './store-vuex'
+import store from '../src/store/myVuex'
 
-const app = createApp(App)
-
-app.use(store)
-app.mount('#app')
+createApp(App).use(store).mount('#app')
