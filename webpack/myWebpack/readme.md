@@ -9,4 +9,5 @@
     3. 遍历AST树：@babel/traverse（依赖收集）
         @babel/core 和 @babel/preset-env （es6 转 es5）
 
+- 浏览器里的JavaScript没有一个很好的方式去引入其他文件
         
