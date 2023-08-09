@@ -10,7 +10,7 @@
   import { ref } from 'vue'
   export default {
         setup() {
-            const count = ref(1)
+            const count = ref(10)
             return { count }
         }
   }

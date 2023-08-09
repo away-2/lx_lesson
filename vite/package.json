@@ -12,5 +12,8 @@
   "dependencies": {
     "koa": "^2.14.2",
     "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3"
   }
 }
