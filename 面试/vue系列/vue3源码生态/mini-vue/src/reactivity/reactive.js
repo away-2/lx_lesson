@@ -1,6 +1,6 @@
 // const mutableHandlers = {} // 深层代理过的对象
 // const shallowReactiveHandlers = {}
-import { mutableHandlers, shallowReactiveHandlers } from './baseHandles.js'
+import { mutableHandlers, shallowReactiveHandlers } from './baseHandlers.js'
 
 export const reactiveMap = new WeakMap() // 存放已经被深层代理过的对象
 export const shallowReactiveMap = new WeakMap() // 存放已经被浅层代理过的对象
@@ -49,3 +49,14 @@ function createReaciveObject(target, proxyMap, proxyHandlers) {
   proxyMap.set(target, proxy)
   return proxy
 }
+
+
+
+
+// let obj = {a: 1}
+// let newobj = new Proxy(obj, {
+//   get() {},
+//   set(a, b, c, d) {},
+//   // ... 13
+// })
+// newobj.a = 2

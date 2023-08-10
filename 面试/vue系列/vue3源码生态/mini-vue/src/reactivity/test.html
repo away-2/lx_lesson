@@ -7,17 +7,40 @@
 </head>
 <body>
   <script type="module">
-    import { reactive } from './reactive.js';
+    import {reactive, shallowReactive } from './reactive.js';
+    import { effect } from './effect.js'
+    import { ref } from './ref.js'
 
-    const state = reactive({
+    const state = shallowReactive({
       name: '老宋',
-      age: 18,
+      age: 18, 
       like: {
         n: 'running'
       }
     })
 
-    console.log(state.like.n); 
+    const count = ref(0)
+    // count.value = 2
+    // console.log(count.value);
+    effect(() => {
+      console.log(`ref:count值为${count.value}`);
+    })
+    // setInterval(() => {
+    //   count.value ++
+    // }, 1000)
+    // age: [effect: () => {console.log(`${state.name}今年${state.age}岁`);}]
+
+    // effect(() => {
+    //   console.log(`${state.name}今年${state.age}岁`);
+    // });
+    // console.log('age' in state );
+    // delete state.age;
+    // state.like.n = 'sing'
+    //   console.log(state.like.n);
+    // setInterval(() => {
+    //   state.age++  // age修改 --> set()  ->  age的effect触发 -> 相当于是() => {console.log(`${state.name}今年${state.age}岁`);}
+    // }, 1000)
+    // console.log(state.age);
   </script>
 </body>
 </html>
