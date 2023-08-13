@@ -14,4 +14,4 @@
 # webpack 3种触发钩子的方式
     1. tap 同步触发
     2. tapAsync 异步触发
-    3. tapPromise
+    3. tapPromise 异步触发且返回一个promise
