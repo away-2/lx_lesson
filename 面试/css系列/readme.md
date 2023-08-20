@@ -24,7 +24,7 @@ box-sizing: border-box;  // 让浏览器以IE盒模型的标准来执行
     10. 属性选择器 []
     11. 层次选择器
 
-    !important > 行内样式 > id选择器 > class选择器 > 标签选择器 
+    !important > 行内样式 > id选择器 > class选择器  = 属性 = 伪类 > 标签选择器 = 伪元素 > 通配符(*)
 
     font-xxx: 会继承
     text-align:
@@ -205,6 +205,23 @@ box-sizing: border-box;  // 让浏览器以IE盒模型的标准来执行
     3. css压缩
     4. 不要使用@import() 引入css， 而是用link标签
 
+# 17. 如何实现单行、多行文本溢出的省略？
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    text-overflow: ellipsis;
 
+# 18. 如何画一个三角形
+    向右的直角三角形：width: 0; height: 0; border-left: 100px solid transparent;
+    
+# 19. 让Chrome支持小于12px的文字怎么实现？
+    transform: scale();
+    zoom: 0.5;
+
+# 20. 说说你对css预编语言的理解？
+    是什么 是一种css的扩展语言，主要增加了变量，混合，函数等功能，使css更易维护
+
+    有哪些 sass less stylus
 
 
