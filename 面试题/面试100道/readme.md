@@ -80,3 +80,26 @@
     - new Event()  创建简单的
 
 # 19. 
+
+# 27. 虚拟DOM的优势？
+ - 直接操作DOM：js DOM API时，js引擎会被挂起，让渲染引擎先工作完，然后再继续工作，
+   如果js频繁操作DOM，那么引擎之间的切换代价就上升，如果其中还有强制刷新任务队列的代码，
+   那么回流重绘又会引起更大的性能消耗
+ - 虚拟DOM：
+    1. 操作虚拟DOM不会导致立刻回流重绘
+    2. 可以在多次操作虚拟DOM完毕后再比较真实DOM中需要修改的部分，一次性回流重绘
+    3. 虚拟DOM 跨平台开发
+
+# 28. 图片懒加载
+    图片懒加载是一种优化网页性能的技术，它可以延迟加载页面上的图片，以提高页面加载速度和用户体验。
+    用document.documentElement.clientHeight获取可视区域的高度，创建img标签在里面加入 data-origin='图片在线地址'属性，用getBoundingClientRect()获取img标签的位置属性，只要保证该img标签在可视容器中，就将 data-origin 属性赋值给 
+    1. 页面上的img默认src不给值
+    2. 获取可视区域的高度，判断图片是否存在于可视区域内，来设置src的值
+
+# 29. 用setTimeout模拟setInterval
+    1. 递归
+    2. 借助setTimeout回调函数参数中的 callee 函数
+
+# 30. async 和 defer 区别
+    - async 让js的加载和html的渲染并行进行，当js加载完毕后立即执行，此时html的渲染需要等待
+    - defer 让js的加载和html的渲染并行进行，当js加载完毕后，等待html的渲染后，才执行js

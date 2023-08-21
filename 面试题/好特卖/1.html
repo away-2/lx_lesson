@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hidden{
+      /* display: none; */
+      /* opacity: 0; */
+      /* position: absolute; 
+      top: -9999px; */
+      /* visibility: hidden; */
+      /* clip-path: circle(0%); */
+      /* transform: scale(0); */
+    }
+  </style>
+</head>
+<body>
+  <div class="hidden">Hi</div>
+
+  <script>
+    let box = document.querySelector('.hidden')
+
+    box.addEventListener('click', () => {
+      console.log('hidden');
+    })
+  </script>
+</body>
+</html>

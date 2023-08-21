@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lazy Loading Images Example</h1>
+    <img data-src="https://t7.baidu.com/it/u=1732966997,2981886582&fm=193&f=GIF" class="lazy-image" alt="Image 1">
+    <img data-src="https://t7.baidu.com/it/u=1785207335,3397162108&fm=193&f=GIF" class="lazy-image" alt="Image 2">
+    <img data-src="https://t7.baidu.com/it/u=1785207335,3397162108&fm=193&f=GIF" class="lazy-image" alt="Image 3">
+  
+    <script>
+      // Function to check if an element is in the viewport
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      // Function to lazy load images
+      function lazyLoad() {
+        const lazyImages = document.querySelectorAll('.lazy-image');
+        lazyImages.forEach((image) => {
+          if (isElementInViewport(image)) {
+            image.src = image.getAttribute('data-src');
+            image.classList.remove('lazy-image');
+          }
+        });
+      }
+      // Attach the lazyLoad function to the scroll event
+      window.addEventListener('scroll', lazyLoad);
+      // Trigger lazy loading for the initial images
+      lazyLoad();
+    </script>
+</body>
+</html>
