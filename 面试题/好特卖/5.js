@@ -19,7 +19,7 @@ new Promise((resolve, reject) => {
 )
 console.log(7)
 
-// // 1, 3, 4, 7, 5, 6, 2
+// // 1, 3, 4, 7, 5, 2
 
 
 

@@ -3,7 +3,7 @@
 
 // 原题9.2： 如果要求outputNth([20,37,20,20,21], 2)//return [20,37,20,21]呢？（按原数组出现的先后返回）
 
-let arr = [20, 37, 20, 20, 21], num = 2  // [20, 20, 37, 21] 
+// let arr = [20, 37, 20, 20, 21], num = 2  // [20, 20, 37, 21] 
 
 
 // function outputNth(arr, num) {
@@ -39,5 +39,24 @@ let arr = [20, 37, 20, 20, 21], num = 2  // [20, 20, 37, 21]
 //   }
 //   return newArr
 // }
+
+function outputNth(arr, N) {
+    const map = new Map();
+    const result = [];
+
+    for (const num of arr) {
+        if (!map.has(num)) {
+            map.set(num, 1);
+            result.push(num);
+        } else {
+            if (map.get(num) < N) {
+                map.set(num, map.get(num) + 1);
+                result.push(num);
+            }
+        }
+    }
+
+    return result;
+}
 
 console.log(outputNth([20, 37, 20, 20, 21], 2));
