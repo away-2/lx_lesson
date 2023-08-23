@@ -82,11 +82,10 @@
 1. 自己的项目layui+jquery为什么选择这个框架
 2. vue2和vue3的区别
 3. defineProperty和proxy区别
-    -- 1. defineProperty 用于劫持对象，不会返回一个新的对象，可以设置对象中某个属性是否可写，
-        可枚举，可配置和默认值
-        2. defineProperty 通过get，set方法可以劫持对象的读取和设置值的行为
-        3. proxy 会返回一个对象，该对象称之为代理对象
-        4. 代理对象上的13种对象行为都被 proxy中的get,set,has... 等函数代理
+  -- 1. defineProperty 用于劫持对象，不会返回一个新的对象，可以设置对象中某个属性是否可写，可枚举，可配置和默认值
+     2. defineProperty 通过get，set方法可以劫持对象的读取和设置值的行为
+     3. proxy 会返回一个对象，该对象称之为代理对象
+     4. 代理对象上的13种对象行为都被 proxy中的get,set,has... 等函数代理
 
 4. defineProperty的实现响应式原理
     -- 1. 循环劫持响应式原理
