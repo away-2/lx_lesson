@@ -5,27 +5,46 @@
 		</van-swipe-item>
 	</van-swipe>
 	<div class="wl-body">
-		<div class="wl-left-item">
+		<div class="wl-left-item" @click="getSendGoods">
 			<p>寄件</p>
 		</div>
-		<div class="wl-right-item">
+		<div class="wl-right-item" @click="getReceiveGoods">
 			<p>收件</p>
 		</div>
 	</div>
 	<div class="wl-bottom">
-		<div class="wl-bottom-item">
+		<div class="wl-bottom-item" @click="getOrder">
 			<p>订单查询</p>
 		</div>
 	</div>
 </template>
 
 <script setup>
+	import {
+		useRouter
+	} from 'vue-router'
+	const router = useRouter()
 	const images = [
 		'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
 		'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
 		'https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg',
 		'https://fastly.jsdelivr.net/npm/@vant/assets/apple-2.jpeg',
 	];
+	const getSendGoods = () => {
+		router.push({
+			path: '/sendGoods'
+		})
+	}
+	const getReceiveGoods = () => {
+		router.push({
+			path: '/receiveGoods'
+		})
+	}
+	const getOrder = () => {
+		router.push({
+			path: '/order'
+		})
+	}
 </script>
 
 <style lang="css">

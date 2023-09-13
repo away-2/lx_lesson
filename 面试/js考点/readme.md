@@ -1,4 +1,4 @@
-# 1. js数组的常用方法有哪些？
+# 1. js数组的常用方法有哪些？ 
 
     - 增删改: push(), pop(), unshift(), shift(), splice(i, num, 'xx'), concat()
     - 遍历: forEach, reduce, filter, every, some, map

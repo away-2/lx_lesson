@@ -55,7 +55,7 @@
         onBeforeUpdate, onUpdate,
         onBeforeUnmount, onUnmounted,
         onActivited, onDeactivated,
-        onErrorCaptured
+        onErrorCaptured 
 
 # 5. 组件通讯的方法
     1. props    (父子)
