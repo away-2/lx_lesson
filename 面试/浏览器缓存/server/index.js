@@ -6,10 +6,16 @@ const path = require('path');
 const server = http.createServer((req, res) => {
     let filePath = path.resolve(__dirname, 'assets/index.html')
     const fileStream = fs.createReadStream(filePath)
-    
+    if (req.url.indexOf()) {
+        // 在响应头中设置资源的类型
+        res.writeHead(200,{
+            'Content-Type': 'image/jpg',
+
+        })
+    }
+   
     fileStream.pipe(res)
     
-    res.end('hello world')
 })
 
 server.listen(3000, () => {
