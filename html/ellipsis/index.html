@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 10%;
+            height: 20px;
+            line-height: 20px;
+            font-size: 10px;
+            background-color: antiquewhite;
+            display: -webkit-box; 
+            -webkit-line-clamp: 1; /* 这里的数字表示显示的文本行数，你可以根据需要进行调整 */
+            -webkit-box-orient: vertical;
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            /* white-space: nowrap;  */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">要在CSS中设置多行文本溢出为省略号你可以使用以下属性</div>
+</body>
+</html>
