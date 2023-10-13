@@ -1,11 +1,13 @@
 <template>
     <div>
-        <button @click="add">{{ state.title[0] }}{{ state.count }}</button>
+        <button @click="add">{{ this.state.title[0] }}{{ state.count }}</button>
+        <Child />
     </div>
 </template>
 
 <script>
 import { reactive } from 'vue';
+import Child from '../components/Child.vue'
 export default {
     setup () {
          const state = reactive({
@@ -15,7 +17,7 @@ export default {
          const add = () => {
             // console.log(state.title.length);
             // let i = state.title.length;
-            let randomNum = Math.floor(Math.random() * 3);
+            let randomNum = Math.floor(Math.random() * 10);
             state.count++,
             state.title = state.title[randomNum]
          }   

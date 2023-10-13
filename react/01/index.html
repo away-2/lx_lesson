@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <!-- 定义一个容器存放VDOM -->
+    <!-- 创建VDOM -->
+    <!-- 将VDOM渲染到页面上 -->
+    <div id="root1"></div>
+    <script>
+        ReactDom.render(
+            <ul>
+                <li className='11111'></li>
+                <li>22222</li>
+            </ul>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root1"></div>
+    <script type="text/babel">
+        // 函数式组件（无状态组件）
+        function Hello(props) {
+            return <div>
+                <h1>Hello</h1>
+                <p>姓名：{props.name}</p>
+                </div>
+        }
+        function Lao() { 
+            return
+        <div>
+            <h1>1</h1>
+        </div>
+        }
+        let password =/^\S*(?=\S{6,12})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*? ])\S*$/
+        ReactDOM.render(
+            // <Lao />
+            <Hello name='xxx'/>,
+            document.getElementById('root1')
+        )
+    </script>
+</body>
+
+</html>
