@@ -1,0 +1,62 @@
+.signin {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin-content {
+    background-color: #fff;
+    height: 400px;
+    width: 400px;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.08), 1px 2px 1px 0px rgba(0, 0, 0, 0.04);
+    padding: 100px 100px;
+    border-radius: 5px;
+}
+.ant-form{
+    background-color: #fff;
+}
+
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+#components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+#components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }
+.login-input-style .ant-form-item-control-input-content {
+    font-size: 24px !important;
+    margin-top: 5px;
+    background-color: #fff;
+}
+.login-input-style .ant-form-item-control-input{
+    background-color: #fff;
+}
+.login-input-style .ant-input-affix-wrapper {
+    font-size: 24px !important;
+    margin: 5px 0;
+}
+.login-input-style input::placeholder {
+    color: red !important;
+}
+.login-form-button {
+    width: 100%;
+    height: 45px !important;
+    font-size: 16px !important;
+    border-radius: 3px !important;
+    background-color: #002FA7 !important;
+    margin: 20px 0;
+}
+
+.site-form-item-icon {
+    color: #C8C8C8 !important;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
