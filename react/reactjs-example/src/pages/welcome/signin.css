@@ -5,6 +5,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../../static/image/ee.jpg");
+    background-size: 100% 100%;
 }
 .signin-content {
     background-color: #fff;
@@ -13,9 +15,6 @@
     box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.08), 1px 2px 1px 0px rgba(0, 0, 0, 0.04);
     padding: 100px 100px;
     border-radius: 5px;
-}
-.ant-form{
-    background-color: #fff;
 }
 
 #components-form-demo-normal-login .login-form {
@@ -43,7 +42,8 @@
     margin: 5px 0;
 }
 .login-input-style input::placeholder {
-    color: red !important;
+    color: #f1f1f1 !important;
+    font-size: 18px !important;
 }
 .login-form-button {
     width: 100%;

@@ -1,9 +1,16 @@
 import { Segmented, Layout, Menu } from "antd";
-import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import React ,{ useState } from "react";
 import "./layout.css";
 
 export default function mainLayout() {
     const { Header, Content } = Layout;
+    const [value, setValue] = useState()
+    const Navigate = useNavigate(state.pathname)
+    const state = useLocation()
+    const changePage = (value) => {
+     
+    }
   return (
     <Layout className="layout">
     <Header
@@ -103,6 +110,8 @@ export default function mainLayout() {
             value: 'nine',
           },
       ]}
+      value={value}
+      onChange={(value) => changePage(value)}
     />
     </Header>
     <Content
