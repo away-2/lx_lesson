@@ -1,3 +1,4 @@
+@import '../node_modules/antd/dist/reset.css';
 .title{
   color: green;
   font-weight: bold;
