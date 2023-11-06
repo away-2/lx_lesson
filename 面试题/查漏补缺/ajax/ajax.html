@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">点我获取数据</button>
+
+  <!-- <script>
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.fastmock.site/mock/39ac87de3060aa2bb2ba20a0ff375c81/cat-movie/mostLike', true);
+    xhr.send()
+    xhr.onreadystatechange = function() { // 接受到响应时触发
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(JSON.parse(xhr.responseText));
+      }
+    }
+  </script> -->
+
+  <!-- <script src="./ajax.js"></script>
+  <script>
+    ajax({
+      method: 'get',
+      url: 'https://www.fastmock.site/mock/39ac87de3060aa2bb2ba20a0ff375c81/cat-movie/mostLike',
+      data: {
+        id: 1, 
+        name: '小帅'
+      },
+      async: true,
+      dataType: 'json',
+      success(res) {
+        console.log(res);
+      },
+      fail() {
+
+      }
+    })
+  </script> -->
+
+  <script>
+    fetch('https://www.fastmock.site/mock/39ac87de3060aa2bb2ba20a0ff375c81/cat-movie/mostLike', {
+      method: 'GET'
+    })
+     .then(res => res.json())
+     .then(data => {
+      console.log(data);
+     })
+  </script>
+</body>
+</html>

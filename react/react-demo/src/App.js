@@ -1,5 +1,5 @@
 import "./App.css";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import Child from "./components/child";
 import Child2 from "./components/child2";
 import { createContext, useRef, useState } from "react";
@@ -11,6 +11,7 @@ function App() {
   //   setValue(msg)
   // }
   const appMsg = "appMsg";
+  const [sendMessage, setSendMessage] = useState([])
   const MsgContext = createContext();
 
   return (
