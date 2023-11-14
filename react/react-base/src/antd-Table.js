@@ -1,36 +1,7 @@
-// import "./App.css";
-// import { Button, Input } from "antd";
-// import Child from "./components/child";
-// import Child2 from "./components/child2";
-// import { createContext, useRef, useState } from "react";
-// function App() {
-//   // const getChildInfo = useRef(null)
-//   const [value, setValue] = useState("");
-//   // const getChildInfo = (msg) => {
-//   //   console.log(msg);
-//   //   setValue(msg)
-//   // }
-//   const appMsg = "appMsg";
-//   const [sendMessage, setSendMessage] = useState([])
-//   const MsgContext = createContext();
-
-//   return (
-//     <div className="App">
-//       <MsgContext.Provider value={appMsg}>
-//         this is app page{value}
-//         {/* <Child onRef={getChildInfo}/> */}
-//         <Child2 />
-//       </MsgContext.Provider>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 import { Table } from 'antd';
-import React, {useRef} from 'react';
-const columns = [
+import React from 'react';
+import ResizeTable from "./components/ResizableTable/index";
+const column = [
   {
     title: 'Full Name',
     width: 100,
@@ -110,8 +81,8 @@ for (let i = 0; i < 100; i++) {
   });
 }
 const App = () => (
-  <Table
-    columns={columns}
+  <ResizeTable
+    columns={column}
     dataSource={data}
     scroll={{
       x: 1500,
