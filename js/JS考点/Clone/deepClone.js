@@ -30,3 +30,4 @@ let obj = {
   let newObj = deepClone(obj)
   obj.b.d.e = 8
   console.log(newObj);
+  

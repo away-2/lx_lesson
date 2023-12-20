@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Resizable } from "react-resizable";
 import { Table } from "antd";
-// 需要引入resizziable的样式
+// 需要引入resizable的样式
 // import "../../../../node_modules/react-resizable/css/styles.css";
 import './index.css'
 
