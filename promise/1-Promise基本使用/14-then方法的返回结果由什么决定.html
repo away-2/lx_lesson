@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            resolve('ok');
+        })
+        let result = p.then(value => {
+            // console.log(value);
+            // 1. 抛出问题
+            // throw 'this is a error';
+            // 2. 返回结果是非 Promise 类型的对象
+            // return 123;
+            // 3. 返回结果是 Promise 对象
+            return new Promise((resolve, reject) => {
+                // resolve('success');
+                reject('fail');
+            })
+        }, reason => {
+            console.log(reason);
+        })
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <h2 class="page-header">promise</h2>
+        <button class="btn btn-primary" id="btn">抽奖</button>
+    </div>
+    <script>
+        function rand(m, n) {
+            return Math.ceil(Math.random() * (n - m + 1)) + m - 1;
+        }
+        // 获取元素对象
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            // setTimeout(() => {
+            //     let n = rand(1, 100)
+            //     if (n <= 30) {
+            //         alert('6')
+            //     } else {
+            //         alert('8')
+            //     }
+            // }, 1000)
+            // promise 形式实现
+            // resolve 成功  函数类型的数据
+            // reject 失败   函数类型的数据
+            const p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let n = rand(1, 100)
+                    if (n <= 30) {
+                       resolve(n) // 将promise 对象的状态设置为 成功
+                    } else {
+                        reject(n)  // 将promise 对象的状态设置为 失败
+                    }
+                }, 1000)
+            })
+            // 调用then 方法
+            p.then((value) => {
+               alert("成功" + value) 
+            }, (reason) => {
+                alert("失败" + reason)
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./promise.js"></script>
+  </head>
+  <body>
+    <script>
+      let p = new Promise((resolve, reject) => {
+        // setTimeout(() => {
+        //   resolve("ok");
+        // //   reject('error');
+        //   // 抛出异常
+        // //   throw "err";
+        // }, 1000);
+        resolve("ok");
+        //   reject('error');
+        //   抛出异常
+        //   throw "err";
+      });
+    //   console.log(p);
+    const result = p.then(value => {
+        //   console.log(value);
+        // return new Promise((resolve, reject) =>{
+        //     // resolve("success")
+        //     reject("fail")
+        // })
+        // 抛出异常
+        throw "err"
+        },reason => {
+          console.warn(reason);
+        }
+      );
+    console.log(result);  
+    </script>
+  </body>
+</html>
