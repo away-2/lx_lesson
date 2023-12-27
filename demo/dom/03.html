@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超炫酷流动边框</title>
+    <style>
+        @property --bg-color {
+            syntax: "<color>";
+            initial-value: #010101;
+            inherits: false;
+        }
+
+        body {
+            height: 100vh;
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+
+        .streamer-button {
+            background: var(--bg-color);
+            padding: 4px;
+            position: relative;
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: 1.5em;
+            color: rgb(88 199 250 / 100%);
+            cursor: pointer;
+            font-family: cursive;
+            overflow: hidden;
+        }
+
+        .streamer-content {
+            padding: 24px 40px;
+            background: var(--bg-color);
+            z-index: 10;
+            border-radius: 6px;
+        }
+
+        .streamer-button:hover::before {
+            animation-play-state: paused;
+        }
+
+        .streamer-button::before {
+            content: "";
+            background-image: linear-gradient(132deg, #5ddcff, #3c67e3 43%, #4e00c2);
+            position: absolute;
+            z-index: 0;
+            left: -4px;
+            right: -4px;
+            padding-bottom: calc(100% + 8px);
+            animation: spin 2s linear infinite;
+        }
+
+        .streamer-button-2::before {
+            background-image: linear-gradient(132deg, var(--bg-color) 50%, #4e00c2);
+        }
+
+        .streamer-button-2:hover::before {
+            transition: all ease 0.2s;
+            background-image: linear-gradient(132deg, #4e00c2, #4e00c2);
+        }
+
+        @keyframes spin {
+            0% {
+                rotate: 0deg;
+            }
+
+            100% {
+                rotate: 360deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="streamer-button">
+        <div class="streamer-content">Streamer Frame Button 2</div>
+    </div>
+
+    <div class="streamer-button streamer-button-2">
+        <div class="streamer-content">Streamer Frame Button 2</div>
+    </div>
+</body>
+
+</html>
