@@ -6,6 +6,7 @@ function Promise(executor) {
   this.callback = [];
   // 保存实例对象的 this 的值
   const self = this;
+
   function resolve(data) {
     // 判断状态
     if (self.PromiseState !== "pending") return;
@@ -42,6 +43,7 @@ function Promise(executor) {
 
 // 添加 then 方法
 Promise.prototype.then = function (onResolved, onRejected) {
+  const self = this;
   return new Promise((resolve, reject) => {
     // 调用回调函数
     if (this.PromiseState === "fulfilled") {
@@ -74,8 +76,44 @@ Promise.prototype.then = function (onResolved, onRejected) {
     if (this.PromiseState === "pending") {
       // 保存回调函数
       this.callback.push({
-        onResolved: onResolved,
-        onRejected: onRejected,
+        onResolved: function () {
+          try {
+            // 执行成功的回调函数
+            let result = onResolved(self.PromiseResult);
+            // 判断
+            if (result instanceof Promise) {
+              result.then(v => {
+                resolve(v);
+              }, r => {
+                reject(r);
+              })
+            } else {
+              resolve(result);
+            }
+          } catch (e) {
+            reject(e);
+          }
+
+        },
+        onRejected: function () {
+          try {
+            // 执行失败的回调函数
+            let result = onRejected(self.PromiseResult);
+            // 判断
+            if (result instanceof Promise) {
+              result.then(v => {
+                resolve(v);
+              }, r => {
+                reject(r);
+              })
+            } else {
+              resolve(result);
+            }
+          } catch (e) {
+            reject(e);
+          }
+
+        },
       });
     }
   });

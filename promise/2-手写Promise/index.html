@@ -9,28 +9,31 @@
   <body>
     <script>
       let p = new Promise((resolve, reject) => {
-        // setTimeout(() => {
-        //   resolve("ok");
-        // //   reject('error');
-        //   // 抛出异常
-        // //   throw "err";
-        // }, 1000);
-        resolve("ok");
+        setTimeout(() => {
+          // resolve("ok");
+          reject('error');
+          // 抛出异常
+        //   throw "err";
+        }, 1000);
+        // resolve("ok");
         //   reject('error');
         //   抛出异常
         //   throw "err";
       });
     //   console.log(p);
     const result = p.then(value => {
-        //   console.log(value);
+          // console.log(value);
+          // return 'ok'
         // return new Promise((resolve, reject) =>{
-        //     // resolve("success")
-        //     reject("fail")
+        //     resolve("success")
+        //     // reject("fail")
         // })
         // 抛出异常
-        throw "err"
+        // throw "err"
         },reason => {
-          console.warn(reason);
+          // console.warn(reason);
+        throw "err"
+
         }
       );
     console.log(result);  
