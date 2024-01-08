@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      width: 300px;
+      height: 500px;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      background: #a8e8ec;
+      position: relative;
+      perspective: 1000px;
+    }
+    #box{
+      width: 1000px;
+      height: 500px;
+    }
+    #box > div{
+      position: absolute;
+      /* display: inline-block; */
+    }
+    .one{
+      width: 30px;
+      height: 500px;
+      background: #ea4242;
+      transform: translateZ(10px);
+      z-index: 10;
+    }
+    .two{
+      width: 30px;
+      height: 500px;
+      background: #93d758;
+      transform: translateZ(0px);
+      z-index: 0;
+    }
+    .three{
+      width: 30px;
+      height: 5000px;
+      background: #af70d6;
+      transform: translateZ(-10px);
+      z-index: -10;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="box">
+      <div class="one">one</div>
+      <div class="two">two</div>
+      <div class="three">three</div>
+    </div>
+  </div>
+</body>
+</html>
