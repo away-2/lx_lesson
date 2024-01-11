@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        aspect-ratio: 5 / 4;
+        background-color: #f1f1f1;
+        padding: 20px;
+        position: relative;
+      }
+      .top{
+        position: absolute;
+        top: 8px;
+        left: 0px;
+      }
+      .topLeft {
+        width: 100px;
+        height: 25px;
+        background-color: rgb(207, 10, 10);
+      }
+      .topRight {
+        width: 0;
+        height: 0;
+        border-top: 0px solid transparent; /* 上边 */
+        border-bottom: 10px solid transparent; /* 下边 */
+        border-right: 20px solid rgb(54, 3, 3); /* 左边 */
+      }
+      .content {
+        width: 300px;
+        height: 200px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+        <div class="top">
+            <div class="topLeft"></div>
+            <div class="topRight"></div>
+        </div>
+      <div class="content"></div>
+    </div>
+  </body>
+</html>
