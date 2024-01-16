@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 1000px;
+            height: 1000px;
+            background-color: aqua;
+            /* border: 50px solid red;
+            padding: 50px; */
+            /* margin: 50px; */
+        }
+
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div onscroll="myscroll()" id="container">
+        <!-- <div class="con" style="height: 200px; width: 200px; "></div> -->
+        <div id="box">1</div>
+    </div>
+    <script>
+        function myscroll() {
+            let container = document.getElementById("container");
+            console.log(container.scrollTop, container.scrollLeft);
+        }
+    </script>
+</body>
+
+</html>

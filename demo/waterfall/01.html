@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        position: relative;
+        
+      }
+      .box {
+        float: left;
+        padding: 15px;
+        border: 1px solid #484848;
+        box-shadow: 0 0 5px #706666;
+        margin: 15px;
+        width: 350px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      let container = document.getElementById("container");
+      for (let i = 1; i < 45; i++) {
+        let img = document.createElement("img");
+        let box = document.createElement("div");
+        box.className = "box";
+        container.appendChild(box);
+        img.src = `./images/${i}.png`;
+        img.style.width = "100%";
+        box.appendChild(img);
+      }
+
+      // 当页面加载时调用
+      window.onload = function () {
+        waterFall();
+      };
+
+      function waterFall() {
+        let imageList = document.getElementsByClassName("box");
+        let winWidth = document.documentElement.clientWidth;
+        let imgWidth = imageList[0].offsetWidth;
+        let num = Math.floor(winWidth / imgWidth);
+        let boxHeightArr = [];
+        for (let i = 0; i < imageList.length; i++) {
+          if (i < num) {
+            boxHeightArr[i] = imageList[i].offsetHeight;
+          } else {
+            // 取上一行最小高度
+            let minHight = Math.min.apply(null, boxHeightArr);
+            // 拿到此时最小高度索引
+            let minHightIndex = boxHeightArr.indexOf(minHight);
+            imageList[i].style.position = "absolute";
+            imageList[i].style.top = minHight + "px";
+            imageList[i].style.left = imgWidth * minHightIndex + "px";
+            // 更新高度最小那列高度
+            boxHeightArr[minHightIndex] += imageList[i].offsetHeight;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
