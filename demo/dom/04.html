@@ -13,8 +13,12 @@
     </style>
 </head>
 <body>
-    <div id="box" >
-        <div class="box1">这是box1</div>
+    <div id="box" index="1">
+        <div class="box1">这是box1
+            <div class="box1-1">
+                <div class="box1-1-1"></div>
+            </div>
+        </div>
         <div class="box2">这是box2</div>
         <p class="p">这是p标签</p>
         <button>这是按钮</button>
@@ -22,13 +26,17 @@
     </div>
     <script>
         let box = document.getElementById("box");
-        box.onclick =(e) => {
-            // console.log(e.target.classList);
-            // alert(e.target.nodeName)
-            // console.log(e.target.type);
-            console.log(e.target.style.backgroundColor = "red");
-        }
-        box.removeChild(box.children[0]);
+        // box.onclick =(e) => {
+        //     // console.log(e.target.classList);
+        //     // alert(e.target.nodeName)
+        //     // console.log(e.target.type);
+        //     console.log(e.target.style.backgroundColor = "red");
+        // }
+        // box.removeChild(box.children[0]);
+        // let box1 = document.querySelector('.box1-1-1');
+        // console.log(box1.parentNode);
+        let index = box.getAttribute('id')
+        console.log(index);
     </script>
 </body>
 </html>
