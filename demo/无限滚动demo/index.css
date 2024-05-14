@@ -1,0 +1,77 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.tag-list {
+    margin: 0;
+    padding-inline: 0;
+    list-style: none;
+}
+
+.tag-list li {
+    padding: 1rem;
+    background: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 2px #f1f1f1;
+    cursor: pointer;
+}
+
+.scroller {
+    width: 550px;
+    /* overflow: hidden; */
+}
+
+.scroller__inner {
+    display: flex;
+    gap: 15px;
+    padding-block: 15px;
+    /* outline: solid red 2px; */
+    flex-wrap: wrap;
+    width: max-content;
+}
+
+.scroller[data-animated='true'] {
+    overflow: hidden;
+    mask: linear-gradient(90deg, transparent, blue 20%, blue 80%, transparent);
+}
+
+.scroller[data-animated='true'] .scroller__inner {
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, normal) linear infinite;
+}
+
+.scroller[animation-direction='right'] {
+    --_animation-direction: reverse;
+}
+
+.scroller[animation-direction='left'] {
+    --_animation-direction: normal;
+}
+
+.scroller[animation-duration='fast'] {
+    --_animation-duration: 10s;
+}
+
+.scroller[animation-duration='slow'] {
+    --_animation-duration: 40s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 7px));
+    }
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
