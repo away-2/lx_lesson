@@ -1,6 +1,6 @@
 # 1.盒子模型
 1. 标准盒模型
-width + content + padding + border + margin === 总宽度
+content + padding + border + margin === 总宽度
 width === content
 
 box-sizing: content-box;   // 标准盒模型
