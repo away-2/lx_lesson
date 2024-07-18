@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">0</button> 
+    <script src="./index.js"></script>
+    <script>
+        let count = 0;
+        let btn = document.getElementById("btn");
+
+        function add(e) {
+            console.log(this,"///");
+            this.innerHTML = count++;
+            return 123;
+        }
+        window.addEventListener("click",throttle(add,1000))
+    </script>
+</body>
+</html>
